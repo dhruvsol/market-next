@@ -5,6 +5,7 @@ import Icon from "../../../components/Icon";
 import Report from "../../../components/Report";
 import Modal from "../../../components/Modal";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
+import Link from "next/link";
 // import { isStepDivisible } from "react-range/lib/utils";
 
 const shareUrlFacebook = "https://ui8.net";
@@ -32,15 +33,12 @@ const User = ({ className, item }) => {
           A wholesome farm owner in Montana. Upcoming gallery solo show in
           Germany
         </div>
-        <a
-          className={styles.site}
-          href="https://ui8.net"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="globe" size="16" />
-          <span>https://ui8.net</span>
-        </a>
+        <Link href="https://ui8.net">
+          <div className={styles.site}>
+            <Icon name="globe" size="16" />
+            <span>https://ui8.net</span>
+          </div>
+        </Link>
         <div className={styles.control}>
           <div className={styles.btns}>
             <button
@@ -95,15 +93,11 @@ const User = ({ className, item }) => {
         </div>
         <div className={styles.socials}>
           {item.map((x, index) => (
-            <a
-              className={styles.social}
-              href={x.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-            >
-              <Icon name={x.title} size="20" />
-            </a>
+            <Link href={x.url} key={index}>
+              <div className={styles.social}>
+                <Icon name={x.title} size="20" />
+              </div>
+            </Link>
           ))}
         </div>
         <div className={styles.note}>Member since Mar 15, 2021</div>

@@ -4,6 +4,7 @@ import styles from "./Item.module.sass";
 import Users from "./Users";
 import Control from "./Control";
 import Options from "./Options";
+import Link from "next/link";
 
 const navLinks = ["Info", "Owners", "History", "Bids"];
 
@@ -77,13 +78,7 @@ const Item = () => {
             <div className={styles.info}>
               This NFT Card will give you Access to Special Airdrops. To learn
               more about UI8 please visit{" "}
-              <a
-                href="https://ui8.net"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                https://ui8.net
-              </a>
+              <Link href="https://ui8.net">https://ui8.net</Link>
             </div>
             <div className={styles.nav}>
               {navLinks.map((x, index) => (

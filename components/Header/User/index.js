@@ -74,17 +74,14 @@ const User = ({ className }) => {
               {items.map((x, index) =>
                 x.url ? (
                   x.url.startsWith("http") ? (
-                    <a
-                      className={styles.item}
-                      href={x.url}
-                      rel="noopener noreferrer"
-                      key={index}
-                    >
-                      <div className={styles.icon}>
-                        <Icon name={x.icon} size="20" />
+                    <Link href={x.url} rel="noopener noreferrer" key={index}>
+                      <div className={styles.item}>
+                        <div className={styles.icon}>
+                          <Icon name={x.icon} size="20" />
+                        </div>
+                        <div className={styles.text}>{x.title}</div>
                       </div>
-                      <div className={styles.text}>{x.title}</div>
-                    </a>
+                    </Link>
                   ) : (
                     <Link
                       className={styles.item}

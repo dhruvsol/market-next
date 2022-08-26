@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import styles from "./Followers.module.sass";
 import Loader from "../../../components/Loader";
+import Link from "next/link";
 
 const Followers = ({ className, items }) => {
   return (
@@ -16,20 +17,20 @@ const Followers = ({ className, items }) => {
               <div className={styles.details}>
                 <div className={styles.title}>{x.name}</div>
                 <div className={styles.counter}>{x.counter}</div>
-                <a
-                  className={cn(
-                    { "button-small": x.buttonClass === "blue" },
-                    {
-                      "button-stroke button-small": x.buttonClass === "stroke",
-                    },
-                    styles.button
-                  )}
-                  href={x.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {x.buttonContent}
-                </a>
+                <Link href={x.url} target="_blank" rel="noopener noreferrer">
+                  <div
+                    className={cn(
+                      { "button-small": x.buttonClass === "blue" },
+                      {
+                        "button-stroke button-small":
+                          x.buttonClass === "stroke",
+                      },
+                      styles.button
+                    )}
+                  >
+                    {x.buttonContent}
+                  </div>
+                </Link>
               </div>
             </div>
             <div className={styles.wrap}>

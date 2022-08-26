@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import styles from "./SuccessfullyPurchased.module.sass";
 import Icon from "../../../../components/Icon";
+import Link from "next/link";
 
 const socials = [
   {
@@ -47,15 +48,16 @@ const SuccessfullyPurchased = ({ className }) => {
       <div className={styles.stage}>Time to show-off</div>
       <div className={styles.socials}>
         {socials.map((x, index) => (
-          <a
-            className={styles.social}
+          <Link
             href={x.url}
             target="_blank"
             rel="noopener noreferrer"
             key={index}
           >
-            <Icon name={x.title} size="24" />
-          </a>
+            <div className={styles.social}>
+              <Icon name={x.title} size="24" />
+            </div>
+          </Link>
         ))}
       </div>
     </div>

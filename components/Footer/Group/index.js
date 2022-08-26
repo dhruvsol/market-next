@@ -16,18 +16,10 @@ const Group = ({ className, item }) => {
       <div className={styles.menu}>
         {item.menu.map((x, index) =>
           x.url.startsWith("http") ? (
-            <a
-              className={styles.link}
-              href={x.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-            >
-              {x.title}
-            </a>
+            <Link href={x.url} key={index}></Link>
           ) : (
-            <Link className={styles.link} href={x.url} key={index}>
-              {x.title}
+            <Link href={x.url} key={index}>
+              <div className={styles.link}>{x.title}</div>
             </Link>
           )
         )}
